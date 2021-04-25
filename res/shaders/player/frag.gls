@@ -1,0 +1,15 @@
+#version 330 core
+
+uniform float rotation;
+uniform sampler2D sampler;
+
+in vec2 texCoords;
+
+out vec4 color;
+
+void main() {
+	color = texture(sampler, texCoords + vec2(0, rotation));
+	if (color.a == 0) {
+		discard;
+	}
+}

@@ -1,0 +1,13 @@
+#version 330 core
+
+uniform mat4 mvp;
+
+layout (location = 0) in vec3 vertices;
+layout (location = 1) in float in_value;
+
+out float value;
+
+void main() {
+    value = in_value;
+	gl_Position = mvp * vec4(vertices, 1);
+}
